@@ -1,0 +1,30 @@
+{% extends "_layout.html" %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+
+<div class="main">
+
+    <form method="get">
+        <input name="q" type="text">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="card_wrapper">
+        <p>Total Results: {{ total_books }}</p>
+        <div class="books">
+            {% for book in books %}
+            {% include 'components/book_card.html' with book=book %}
+            {% empty %}
+            <p>No books found.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}
